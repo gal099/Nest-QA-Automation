@@ -9,6 +9,6 @@ const browserOptions: LaunchOptions = {
 };
 
 export const config = {
-  browser: process.env.BROWSER || 'chromium',
+  browser: process.env.BROWSER || 'firefox',
   browserOptions,
 };
