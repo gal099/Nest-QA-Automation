@@ -11,7 +11,7 @@ Given('That a user opens the browser', async function (this: ICustomWorld) {
 
 When('The user navigate to the site', async function (this: ICustomWorld) {
   const page = this.page!;
-  await page.goto(urlMap.get('platzi'));
+  await page.goto(urlMap.get('website'));
 });
 
 Then('The user should see the landing page', async function (this: ICustomWorld) {
