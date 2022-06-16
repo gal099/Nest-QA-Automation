@@ -1,30 +1,21 @@
-/* eslint-disable no-console */
 import { ICustomWorld } from '../support/custom-world';
+import { selector } from '../utils/elements_selector';
 import { Then } from '@cucumber/cucumber';
 import { replace } from 'lodash';
-
-// import { expect } from '@playwright/test';
 
 Then(
   'The user should see the number of pages of the current tag',
   async function (this: ICustomWorld) {
     const page = this.page!;
-    const tags = await page.$$(
-      '#search > div.Search.u-wrapper > div > div > div.u-wrapper > div > div.Tab',
-    );
+    const tagsAmount = await page.$$(selector.searchTabs);
 
-    for (let i = 1; i <= tags.length; i++) {
-      const selector = replace(
-        '#search > div.Search.u-wrapper > div > div > div.u-wrapper > div > div:nth-child({})',
-        '{}',
-        `${i}`,
-      );
-      await page.locator(selector).click();
-      const selectorText = await page.locator('.Tab.is-active >p').textContent();
-      const numberOfPages = await page
-        .locator('div.SearchTabs-content > div > nav > ul > li > button.page')
-        .count();
-      console.log(`The tag ${selectorText} have ${numberOfPages} pages`);
+    for (let i = 1; i <= tagsAmount.length; i++) {
+      const tag = replace(selector.tags, '{}', `${i}`);
+      await page.locator(tag).click();
+      const selectorText = await (await page.locator(selector.activeTag).innerText()).split(' ');
+      const numberOfPages = await page.locator(selector.pages).count();
+      // eslint-disable-next-line no-console
+      console.log(`The tag ${selectorText[0]} have ${numberOfPages} pages`);
     }
   },
 );
