@@ -15,4 +15,7 @@ export const selector = {
   courseTitle: '.Hero-content-title', //Name of the course
   opinions: 'p.CourseExtraInfo-content-opinions', //Amount of opinions
   postList: 'div > div > div:nth-child(2) > div > section > article', //List of searched post
+  filtersMenu: '.Filters-container', //Blog Filters menu
+  mostVoted: 'a.Filters-single:nth-child(3)', //Most voted filter
+  activeFilter: '.Filters-selected', //The selected filter from the filters menu
 };
