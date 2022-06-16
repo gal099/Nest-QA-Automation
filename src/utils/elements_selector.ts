@@ -11,4 +11,7 @@ export const selector = {
   tags: '#search > div.Search.u-wrapper > div > div > div.u-wrapper > div > div:nth-child({})', //Courses, school and lessons tags
   activeTag: '.Tab.is-active >p', //Name of the active tag
   pages: 'div.SearchTabs-content > div > nav > ul > li > button.page', //Amount of pages
+  courseCardTitle: '.CourseCard-content-title', //Title of the course card
+  courseTitle: '.Hero-content-title', //Name of the course
+  opinions: 'p.CourseExtraInfo-content-opinions', //Amount of opinions
 };
