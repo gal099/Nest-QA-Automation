@@ -14,4 +14,5 @@ export const selector = {
   courseCardTitle: '.CourseCard-content-title', //Title of the course card
   courseTitle: '.Hero-content-title', //Name of the course
   opinions: 'p.CourseExtraInfo-content-opinions', //Amount of opinions
+  postList: 'div > div > div:nth-child(2) > div > section > article', //List of searched post
 };
